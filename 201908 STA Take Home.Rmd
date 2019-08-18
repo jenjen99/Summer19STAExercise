@@ -9,8 +9,9 @@ output: md_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# 1. Visual story telling part 1: green buildings
-```{r message= FALSE}
+# Problem 1. Visual story telling part 1: green buildings
+
+```{r warning = FALSE, message= FALSE}
 rm(list=ls())
 green = read.csv("greenbuildings.csv")
 # summary(green)
@@ -19,7 +20,7 @@ library(tidyverse)
 ```
 
 We started by checking potential confounders in the dataset and diving into those that appear to have the potential, namely "age" and "class_a." 
-```{r, fig.align='center', message=FALSE}
+```{r, fig.align='center', warning = FALSE, message=FALSE}
 # Check whether age is a plausible confounder
 g = ggplot(green)
 g + geom_histogram(aes(x = age, y=stat(density))) +
@@ -41,7 +42,7 @@ green = mutate(green,
 # compare rent within age groupings
 rentByAge = green %>%
   group_by(agecat, green_rating) %>%
-  summarize(median_rent = median(Rent), n=n()) #do median to eliminate the effects of outlier
+  summarize(median_rent = median(Rent), n=n()) # do median to eliminate the effects of outlier
 
 ggplot(rentByAge) +
   geom_bar(stat = 'identity', aes(x = agecat,
@@ -97,9 +98,10 @@ ggplot(rentByclassA) +
 **Concluding Thoughts:** One should not simply conclude that green buildings have higher rents because they are green. In reality, other factors such as the age and the quality of a property also affect rents. That said, as seen from the graphs above, when holding the property age constant, older green buildings do appear to be of higher rents than non-green buildings, though their rents may be lower during the first ten years post construction. Moreover, if the client intends to build a class A property, there is no significant difference in rent between green and non-green buildings. In conclusion, if the client plans to build a non-Class-A building, they may expect to charge higher rents in the long run, but not in the short term.
 
 
-# 2. Visual story telling part 2: flights at ABIA
+# Problem 2. Visual story telling part 2: flights at ABIA
+
 ```{r warning=FALSE, message=FALSE}
-#Setup
+# Setup
 rm(list=ls())
 library(mosaic)
 library(tidyverse)
@@ -113,7 +115,7 @@ ABIAAirline = merge(ABIA, airlinecode, by.x = "UniqueCarrier", by.y = "ï..IATA"
 
 **Thesis:** We would like to explore outbound flight cancellations from ABIA in 2008. Are there particular airlines that had more cancellations? Were these cancellations out of their control? We start by level setting the flight volume by airline, then diving into the cancellation volume, cancellations as a percentage of total flights, and finally reasons for cancellations. 
 
-```{r, message = FALSE, fig.align='center'}
+```{r, warning = FALSE, message = FALSE, fig.align='center'}
 # Dummy variable setup
 n = dim(ABIAAirline)[1]
 CanCarrier = rep(0,n)
@@ -199,7 +201,7 @@ ggplot(df, aes(x = AirlineName,
 - SkyWest operates for American, United, and Alaska
 
 
-# 3. Portfolio modeling
+# Problem 3. Portfolio modeling
 
 ## Portfolio 1:
 
@@ -368,12 +370,12 @@ getSymbols(myETF3, from = "2014-08-01") # Last five years of data
 ```
 
 ```{r}
-#Adjust for splits and dividends
+# Adjust for splits and dividends
 for(ticker in myETF3) {
 	expr = paste0(ticker, "a = adjustOHLC(", ticker, ")")
 	eval(parse(text=expr))
 }
-#head(FRN)
+# head(FRN)
 ```
 
 ```{r}
@@ -453,7 +455,7 @@ This potfolio has a 5% VaR of about $5,454 and the distrbution of its returns is
 
 
 
-# 4. Market segmentation
+# Problem 4. Market segmentation
 ```{r, warning=FALSE, message=FALSE}
 rm(list=ls())
 library(ggplot2)
@@ -462,8 +464,6 @@ library(foreach)
 library(mosaic)
 
 social = read.csv('social_marketing.csv', header=TRUE)
-# summary(social) # Not many spammers (at most 2)
-#Top groups: Chatter, nutrition, photo sharing, cooking, politics
 ```
 
 ```{r}
@@ -482,7 +482,7 @@ clust1
 ```
 
 **Choosing K**
-```{r}
+```{r, warning=FALSE, message=FALSE}
 k_grid = seq(2, 15, by = 1)
 SSE_grid = foreach(k = k_grid, .combine = 'c') %do%
   {
@@ -517,7 +517,9 @@ We clustered NutrientH2O's social media audience into seven clusters based on th
 - **The Social Media Influencers:** This segment (7% of the sample) often tweets about cooking (19%), photo sharing (10%), fashion (9%), and beauty (6%).
 - **The Others:** This segment (14% of the sample) does not have many targeted interests. That said, they have many chatter tweets (24%), often shares photos (12%),and discuss a healthy amount of current events (5%) and shopping (7%).
 
-# 5. Author Attribution
+
+# Problem 5. Author attribution
+
 ```{r warning=FALSE, message=FALSE}
 # Setup
 rm(list = ls())
@@ -681,7 +683,8 @@ Our data pre-processing and analysis pipeline is as followed (the same steps wer
 As mentioned above, our best Random Forest model had 1000 trees and sampled 10 variables at each split. The model reached an overall accuracy of 80%. Additionally, when predicting for a specific author, our model’s precision (specificity) is generally over 99%. That said, some  authors’ recalls (sensitivity, or true positives out of all positives) were especially bad. For example, the model only identified about a third of all Scott Hillis’ articles.
 
 
-# 6. Association rule mining  
+# Problem 6. Association rule mining  
+
 We first read in the data and create the appropriate model
 ```{r, warning= FALSE, message=FALSE}
 rm(list=ls())
@@ -705,9 +708,10 @@ inspect(subset(grocery_rules, subset=lift > 2 & confidence > 0.5))
 ```
 
 We then plot the confidence, support, and lift to visualize the spreads of the metrics and see if there are relationships among them.
-```{r}
+```{r message=FALSE}
 plot(grocery_rules)
 ```
+
 Based on the graph showing the spreads of support, confidence, and lift above, we decided to
 
 - not filter by support, as most data points have lower than 0.05 support
