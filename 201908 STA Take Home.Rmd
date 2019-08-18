@@ -507,12 +507,12 @@ clust2$size/7882
 ```
 
 **Market Segment Identification:**
-We clustered NutrientH2O's social media audience into seven clusters based on the percentage of tweets each user had in each categor. Each cluster has at least 7% (557/7882) of the audience sample; so we feel each cluster is meaningful. We identified the following segments amongst the audience:
+We clustered NutrientH2O's social media audience into seven clusters based on the percentage of tweets each user had in each category. Each cluster has at least 7% (557/7882) of the audience sample; so we feel each cluster is meaningful. We identified the following segments amongst the audience:
 
 - **Middle America:** This segment (10% of the sample) includes those who are particularly interested in sports (11% of tweets), religion (9%), and parenting (7%).
 - **The Worldly:** This segment (16% of the sample) includes those who regularly discuss politics (15)%, news (10%), and travel (9%).
 - **College Gamers:** This segment (24% of the sample) often discusses online gaming (18%) and college-related events (19%).
-- **The Health Hurus:** This segment (17% of the sample) is particularly interested in health_nutrition (22%) and personal fitness (11%). They also often discuss cooking (6%) and outdoors (4%).
+- **The Health Gurus:** This segment (17% of the sample) is particularly interested in health_nutrition (22%) and personal fitness (11%). They also often discuss cooking (6%) and outdoors (4%).
 - **Avg. College Students:** This segment (13% of the sample) discusses a healthy amount of tv & film (7%), current events (5%), college events (5%), art (5%), music (3%), and dating (3%)
 - **The Social Media Influencers:** This segment (7% of the sample) often tweets about cooking (19%), photo sharing (10%), fashion (9%), and beauty (6%).
 - **The Others:** This segment (14% of the sample) does not have many targeted interests. That said, they have many chatter tweets (24%), often shares photos (12%),and discuss a healthy amount of current events (5%) and shopping (7%).
