@@ -28,7 +28,7 @@ similar to those of green buildings (&lt; 50), the other between 75 and
 buildings tend to have higher rents, Age of the properties is a
 confounding variable.
 
-    # Try to hold age roguhly constant
+    # Try to hold age roughly constant
     # define some age groupings
     green = mutate(green,
                    agecat = cut(age, c(0, 10, 25, 50, 75, 200),include.lowest = TRUE))
@@ -74,7 +74,7 @@ tend to translate into higher prices. So the higher average rent
 associated with green buildings may be at least partially attributed to
 building qualities.
 
-    # Try to hold class-A roguhly constant
+    # Try to hold class-A roughly constant
     rentByclassA = green %>%
       group_by(class_a, green_rating) %>%
       summarize(median_rent = median(Rent), n=n())
@@ -189,7 +189,7 @@ cancellations.
 
 <img src="201908_STA_Take_Home_files/figure-markdown_strict/unnamed-chunk-7-3.png" style="display: block; margin: auto;" />
 
-    # Get Plot 3's order for Plot 4
+    # Get Plot 3's order for Plot 4 
     Xorder = reorder(FlightCancellations$AirlineName, -FlightCancellations$cancelRatio)
 
     # Plot cancellation reasons by airline
@@ -204,7 +204,7 @@ cancellations.
       geom_bar(stat = 'identity') +
       theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
       labs(title="AUS Outbound Flight Cancellation Reasons, by Airline - 2008",
-           x ="Airline",
+           x ="Airline", 
            y = "Percentage of Cancelled Flights") +
       scale_fill_discrete(name = "Cancellation Reason",
                           labels=c("Carrier", "Weather", "NAS"))
@@ -278,19 +278,19 @@ Portfolio 1:
             holdings = holdings + holdings*return.today
             total_wealth = sum(holdings)
             wealthtracker[today] = total_wealth
-
+            
             # rebalancing
           weights = c(0.4, 0.3, 0.3)
           holdings = weights * total_wealth
-
+            
         }
         wealthtracker
     }
 
     # Profit/loss
-    mean(sim1[,n_days])
+    mean(sim1[,n_days]) 
 
-    ## [1] 100510.4
+    ## [1] 100496.5
 
     hist(sim1[,n_days]- initial_wealth, breaks=30,
          main = "Histogram of Potential Profit/Loss - Portfolio 1",
@@ -303,8 +303,8 @@ Portfolio 1:
     VaR5 = 100000 - quantile(sim1[,n_days], 0.05)
     VaR5
 
-    ##       5%
-    ## 7881.022
+    ##       5% 
+    ## 7860.612
 
 Portfolio 2:
 ------------
@@ -349,19 +349,19 @@ Portfolio 2:
             holdings = holdings + holdings*return.today
             total_wealth = sum(holdings)
             wealthtracker[today] = total_wealth
-
+            
             # rebalancing
           weights = c(0.25, 0.25, 0.25, 0.25)
           holdings = weights * total_wealth
-
+            
         }
         wealthtracker # record wealth of day 20
     }
 
     # Profit/loss
-    mean(sim1[,n_days])
+    mean(sim1[,n_days]) 
 
-    ## [1] 100219.1
+    ## [1] 100228.9
 
     hist(sim1[,n_days]- initial_wealth, breaks=30,
          main = "Histogram of Potential Profit/Loss - Portfolio 2",
@@ -374,8 +374,8 @@ Portfolio 2:
     VaR5 = 100000 - quantile(sim1[,n_days], 0.05)
     VaR5
 
-    ##       5%
-    ## 7411.808
+    ##       5% 
+    ## 7636.193
 
 Porfolio 3:
 -----------
@@ -418,19 +418,19 @@ Porfolio 3:
             holdings = holdings + holdings*return.today
             total_wealth = sum(holdings)
             wealthtracker[today] = total_wealth
-
+            
             # rebalancing
           weights = c(0.2, 0.4, 0.4)
           holdings = weights * total_wealth
-
+            
         }
         wealthtracker
     }
 
     # Profit/loss
-    mean(sim1[,n_days])
+    mean(sim1[,n_days]) 
 
-    ## [1] 100765.2
+    ## [1] 100723.3
 
     hist(sim1[,n_days]- initial_wealth, breaks=30,
          main = "Histogram of Potential Profit/Loss - Portfolio 3",
@@ -443,57 +443,64 @@ Porfolio 3:
     VaR5 = 100000 - quantile(sim1[,n_days], 0.05)
     VaR5
 
-    ##       5%
-    ## 5278.721
+    ##       5% 
+    ## 5401.337
 
-**Report:** Below is a brief description of each of our ETF portfolios, along with their values at right at the 5% level according to our simulations. The first two portfolios have relatively similar VaR at over $7k. Portfolio 3 is safer than the other two, at under  $5.5k of VaR. Note that given the above resampling was generated from Monte Carlo simulations, our answers will not be exactly replicable based on the code above.
+**Report:** Below is a brief description of each of our ETF portfolios,
+along with their values at right at the 5% level according to our
+simulations. The first two portfolios have relatively similar VaR at
+over $7k. Portfolio 3 is safer than the other two, at under $5.5k of
+VaR. Note that given the above resampling was generated from Monte Carlo
+simulations, our answers will not be exactly replicable based on the
+code above.
 
 **Portfolio 1:** Medium-High aggressiveness - This portfolio contains
 
-1. Clymore CEF GS Connect ETN, a currently high-performing diversified ETF
-(i.e., it has the highest YTD growth among all diversified ETFs).
-Diversified ETFs are generally safer, though we increased the
-aggressiveness by choosing the one with the highest YTD growth.
-2. iShares US Medical Devices ETF, a health & biotech ETF. The US health
-industry is one of the most lucrative in the world (albeit at the
-detriment of the American people) and continues to grow. While the
-volatility is high, the upside is as well.
-3. First Trust Brazil Apha DEX Fund, a South American ETF. We decided to ensure more than one
-geography in each portfolio to guard against potential recession in any
-region, and picked a Brazilian one to go with the US for Portfolio 1.
-Though many still see Brazil as an emerging market, this particular ETF
-has been churning out high returns in recent years. Therefore, we
-believe it is a safe option to add to the portfolio.
+1.  Clymore CEF GS Connect ETN, a currently high-performing diversified
+    ETF (i.e., it has the highest YTD growth among all diversified
+    ETFs). Diversified ETFs are generally safer, though we increased the
+    aggressiveness by choosing the one with the highest YTD growth.
+2.  iShares US Medical Devices ETF, a health & biotech ETF. The US
+    health industry is one of the most lucrative in the world (albeit at
+    the detriment of the American people) and continues to grow. While
+    the volatility is high, the upside is as well.
+3.  First Trust Brazil Apha DEX Fund, a South American ETF. We decided
+    to ensure more than one geography in each portfolio to guard against
+    potential recession in any region, and picked a Brazilian one to go
+    with the US for Portfolio 1. Though many still see Brazil as an
+    emerging market, this particular ETF has been churning out high
+    returns in recent years. Therefore, we believe it is a safe option
+    to add to the portfolio.
 
-This portfolio has a 5% VaR a bit under $7.9k and the distribution of its
-returns is wide.
+This portfolio has a 5% VaR a bit under $7.9k and the distribution of
+its returns is wide.
 
 **Portfolio 2:** High aggressiveness - This portfolio contains
 
-1. Vanguard Value ETF, a Large cap blend ETF. We have three other
-aggressive ETFs in this portfolio, so included a large cap/growth and
-value ETF to have a more reliable component for the portfolio.
-2. GREK (Global X FTSE Greece 20 ETF), an emerging market ETF. Greece,
-stabilizing post the bankruptcy and Grexit crisis, provides a good
-opportunity for high returns, though the risks are high as well.
-3. iShares MSCI Thailand ETF, an Asia Pacific ETF. We added a different,
-yet still highly volatile geography into the mix.
-4. SPDR S&P Insurance ETF, a financial services ETF. The financial services industry in
-general is highly lucrative, though the risks can be high as well (read:
-cause of the 2008 recession, high insurance losses from numerous natural
-disasters). We decided to include it, again, to be aggressive with the
-potential high returns.
+1.  Vanguard Value ETF, a Large cap blend ETF. We have three other
+    aggressive ETFs in this portfolio, so included a large cap/growth
+    and value ETF to have a more reliable component for the portfolio.
+2.  GREK (Global X FTSE Greece 20 ETF), an emerging market ETF. Greece,
+    stabilizing post the bankruptcy and Grexit crisis, provides a good
+    opportunity for high returns, though the risks are high as well.
+3.  iShares MSCI Thailand ETF, an Asia Pacific ETF. We added a
+    different, yet still highly volatile geography into the mix.
+4.  SPDR S&P Insurance ETF, a financial services ETF. The financial
+    services industry in general is highly lucrative, though the risks
+    can be high as well (read: cause of the 2008 recession, high
+    insurance losses from numerous natural disasters). We decided to
+    include it, again, to be aggressive with the potential high returns.
 
-This portfolio has a 5% VaR a bit over $7.4k, and the distribution of its
-returns is similar but slightly more concentrated than Portfolio 1.
+This portfolio has a 5% VaR a bit over $7.4k, and the distribution of
+its returns is similar but slightly more concentrated than Portfolio 1.
 
-**Portfolio 3:** Safe - This portfolio contains
-1. iShares MSCI New Zealand ETF, an Asia Pacific ETF. This is a safe bet on a developed
-country with steady growth.
-2. Invesco Frontier markets, an emerging market ETF. This is the only semi-aggressive ETF in the portfolio. That
+**Portfolio 3:** Safe - This portfolio contains 1. iShares MSCI New
+Zealand ETF, an Asia Pacific ETF. This is a safe bet on a developed
+country with steady growth. 2. Invesco Frontier markets, an emerging
+market ETF. This is the only semi-aggressive ETF in the portfolio. That
 said, it is not focused on one single emerging market, so the risks are
-still diversified.
-3. Vanguard Information Technology, a technology ETF. Technology is the present and the future. Including a technology ETF is
+still diversified. 3. Vanguard Information Technology, a technology ETF.
+Technology is the present and the future. Including a technology ETF is
 vital in capturing and profiting from the growth of the world.
 
 This portfolio has a 5% VaR of under $5.3k and the distribution of its
@@ -538,95 +545,98 @@ cluster.
     # K = 7 looks like the elbow
 
     # Using kmeans++ initialization with 7 clusters
+    set.seed(10)
     clust2 = kmeanspp(X, k=7, nstart=50)
     clust2$centers
 
     ##      chatter current_events     travel photo_sharing uncategorized
-    ## 1 0.07680646     0.03874510 0.02588941    0.04104678    0.01650558
-    ## 2 0.07677266     0.03454619 0.02685292    0.04017548    0.01940061
-    ## 3 0.24029440     0.05484896 0.03499178    0.12131898    0.02495694
-    ## 4 0.07992847     0.03193644 0.02875994    0.04763627    0.01738807
-    ## 5 0.08065045     0.03930292 0.08995848    0.03821091    0.01794340
+    ## 1 0.07677266     0.03454619 0.02685292    0.04017548    0.01940061
+    ## 2 0.09726093     0.06111745 0.04712967    0.04975079    0.03673647
+    ## 3 0.08065045     0.03930292 0.08995848    0.03821091    0.01794340
+    ## 4 0.07680646     0.03874510 0.02588941    0.04104678    0.01650558
+    ## 5 0.07992847     0.03193644 0.02875994    0.04763627    0.01738807
     ## 6 0.07297447     0.03637618 0.02857758    0.09574802    0.02233269
-    ## 7 0.09726093     0.06111745 0.04712967    0.04975079    0.03673647
+    ## 7 0.24029440     0.05484896 0.03499178    0.12131898    0.02495694
     ##      tv_film sports_fandom   politics       food     family
-    ## 1 0.01808430    0.11052033 0.01851078 0.08201691 0.04649887
-    ## 2 0.01737646    0.02233951 0.02223362 0.03749700 0.01446296
-    ## 3 0.02019522    0.02596722 0.03012559 0.01862833 0.02091444
-    ## 4 0.02421170    0.02380386 0.02012666 0.02341523 0.01988005
-    ## 5 0.02254455    0.04375804 0.15484337 0.02468965 0.01875494
+    ## 1 0.01737646    0.02233951 0.02223362 0.03749700 0.01446296
+    ## 2 0.07442123    0.02771083 0.02539880 0.02855757 0.01807483
+    ## 3 0.02254455    0.04375804 0.15484337 0.02468965 0.01875494
+    ## 4 0.01808430    0.11052033 0.01851078 0.08201691 0.04649887
+    ## 5 0.02421170    0.02380386 0.02012666 0.02341523 0.01988005
     ## 6 0.01592520    0.01988144 0.01931440 0.01751907 0.01472571
-    ## 7 0.07442123    0.02771083 0.02539880 0.02855757 0.01807483
+    ## 7 0.02019522    0.02596722 0.03012559 0.01862833 0.02091444
     ##   home_and_garden      music       news online_gaming   shopping
-    ## 1      0.01255777 0.01426978 0.01620151    0.01545007 0.02189573
-    ## 2      0.01202962 0.01335322 0.01956643    0.01637570 0.02188338
-    ## 3      0.01545597 0.01796103 0.01387401    0.01519057 0.07016288
-    ## 4      0.01119192 0.01253074 0.01323330    0.17843770 0.01833002
-    ## 5      0.01230270 0.01271554 0.10175879    0.01397165 0.01753607
+    ## 1      0.01202962 0.01335322 0.01956643    0.01637570 0.02188338
+    ## 2      0.01941604 0.02779711 0.02124041    0.01752705 0.02764997
+    ## 3      0.01230270 0.01271554 0.10175879    0.01397165 0.01753607
+    ## 4      0.01255777 0.01426978 0.01620151    0.01545007 0.02189573
+    ## 5      0.01119192 0.01253074 0.01323330    0.17843770 0.01833002
     ## 6      0.01191760 0.01993107 0.01438429    0.01589280 0.02699315
-    ## 7      0.01941604 0.02779711 0.02124041    0.01752705 0.02764997
+    ## 7      0.01545597 0.01796103 0.01387401    0.01519057 0.07016288
     ##   health_nutrition college_uni sports_playing    cooking         eco
-    ## 1       0.02274450  0.01679587     0.01274007 0.01945934 0.012406587
-    ## 2       0.21671098  0.01599393     0.01224264 0.05557171 0.015593603
-    ## 3       0.02162757  0.02123662     0.01370180 0.01987762 0.015111763
-    ## 4       0.02230930  0.18922953     0.04269272 0.02201772 0.008543361
-    ## 5       0.01995962  0.01919527     0.01195992 0.01810022 0.009274309
+    ## 1       0.21671098  0.01599393     0.01224264 0.05557171 0.015593603
+    ## 2       0.02095615  0.04600860     0.01723630 0.01922111 0.014019096
+    ## 3       0.01995962  0.01919527     0.01195992 0.01810022 0.009274309
+    ## 4       0.02274450  0.01679587     0.01274007 0.01945934 0.012406587
+    ## 5       0.02230930  0.18922953     0.04269272 0.02201772 0.008543361
     ## 6       0.02803988  0.02110110     0.01357590 0.18950095 0.008976371
-    ## 7       0.02095615  0.04600860     0.01723630 0.01922111 0.014019096
+    ## 7       0.02162757  0.02123662     0.01370180 0.01987762 0.015111763
     ##     computers    business   outdoors      crafts automotive         art
-    ## 1 0.013397446 0.009116653 0.01179156 0.017273178 0.01913820 0.012787199
-    ## 2 0.010165845 0.007878379 0.04380997 0.010245425 0.01116318 0.012644172
-    ## 3 0.014009646 0.012635290 0.00926237 0.012380264 0.01911280 0.008461305
-    ## 4 0.009398171 0.007379090 0.01043721 0.009354959 0.01505526 0.019774941
-    ## 5 0.035772062 0.010578269 0.01724355 0.010327248 0.04633045 0.009520355
+    ## 1 0.010165845 0.007878379 0.04380997 0.010245425 0.01116318 0.012644172
+    ## 2 0.012117665 0.014689449 0.01525257 0.016476752 0.01627938 0.047274204
+    ## 3 0.035772062 0.010578269 0.01724355 0.010327248 0.04633045 0.009520355
+    ## 4 0.013397446 0.009116653 0.01179156 0.017273178 0.01913820 0.012787199
+    ## 5 0.009398171 0.007379090 0.01043721 0.009354959 0.01505526 0.019774941
     ## 6 0.011630346 0.009180693 0.01353622 0.009245801 0.01291096 0.013656519
-    ## 7 0.012117665 0.014689449 0.01525257 0.016476752 0.01627938 0.047274204
+    ## 7 0.014009646 0.012635290 0.00926237 0.012380264 0.01911280 0.008461305
     ##     religion      beauty  parenting      dating      school
-    ## 1 0.09116630 0.017651856 0.06871207 0.010274490 0.044504005
-    ## 2 0.01395865 0.008450889 0.01276188 0.016303076 0.010215000
-    ## 3 0.01106146 0.009399047 0.01248186 0.014819006 0.014973526
-    ## 4 0.01147869 0.007519962 0.01242132 0.011296043 0.009224471
-    ## 5 0.01624773 0.008110217 0.01686959 0.014960133 0.012590558
+    ## 1 0.01395865 0.008450889 0.01276188 0.016303076 0.010215000
+    ## 2 0.01900443 0.014274846 0.01408414 0.029607225 0.016982793
+    ## 3 0.01624773 0.008110217 0.01686959 0.014960133 0.012590558
+    ## 4 0.09116630 0.017651856 0.06871207 0.010274490 0.044504005
+    ## 5 0.01147869 0.007519962 0.01242132 0.011296043 0.009224471
     ## 6 0.01414612 0.060834696 0.01285687 0.009528852 0.015726423
-    ## 7 0.01900443 0.014274846 0.01408414 0.029607225 0.016982793
+    ## 7 0.01106146 0.009399047 0.01248186 0.014819006 0.014973526
     ##   personal_fitness     fashion small_business         spam       adult
-    ## 1       0.01657562 0.014949975    0.007409727 6.020845e-05 0.006045755
-    ## 2       0.10921876 0.012564505    0.005141202 7.978964e-05 0.004420663
-    ## 3       0.01744707 0.014289624    0.009326927 7.648706e-05 0.003821608
-    ## 4       0.01529368 0.012636260    0.007459737 1.957139e-04 0.005471466
-    ## 5       0.01355091 0.009738987    0.007778548 9.325976e-05 0.002857334
+    ## 1       0.10921876 0.012564505    0.005141202 7.978964e-05 0.004420663
+    ## 2       0.01602209 0.018602038    0.013811051 5.212482e-04 0.037769706
+    ## 3       0.01355091 0.009738987    0.007778548 9.325976e-05 0.002857334
+    ## 4       0.01657562 0.014949975    0.007409727 6.020845e-05 0.006045755
+    ## 5       0.01529368 0.012636260    0.007459737 1.957139e-04 0.005471466
     ## 6       0.01777459 0.092977391    0.007256422 2.834024e-05 0.005021892
-    ## 7       0.01602209 0.018602038    0.013811051 5.212482e-04 0.037769706
+    ## 7       0.01744707 0.014289624    0.009326927 7.648706e-05 0.003821608
 
     clust2$size/7882
 
-    ## [1] 0.13067749 0.16911951 0.24092870 0.07066734 0.13562548 0.09667597
-    ## [7] 0.15630551
+    ## [1] 0.16911951 0.15630551 0.13562548 0.13067749 0.07066734 0.09667597
+    ## [7] 0.24092870
 
 **Market Segment Identification:** We clustered NutrientH2O’s social
 media audience into seven clusters based on the percentage of tweets
-each user had in each category. Each cluster has at least 7% (557/7882)
-of the audience sample; so we feel each cluster is meaningful. We
-identified the following segments amongst the audience:
+each user had in each category. Each cluster has at least 7% of the
+audience sample; so we feel each cluster is meaningful. We identified
+the following segments amongst the audience:
 
--   **Middle America:** This segment (10% of the sample) includes those
-    who are particularly interested in sports (11% of tweets), religion
-    (9%), and parenting (7%).
--   **The Worldly:** This segment (16% of the sample) includes those who
-    regularly discuss politics (15)%, news (10%), and travel (9%).
--   **College Gamers:** This segment (24% of the sample) often discusses
-    online gaming (18%) and college-related events (19%).
--   **The Health Gurus:** This segment (17% of the sample) is
+1.  **The Health Gurus:** This segment (17% of the sample) is
     particularly interested in health\_nutrition (22%) and personal
     fitness (11%). They also often discuss cooking (6%) and outdoors
     (4%).
--   **Avg. College Students:** This segment (13% of the sample)
-    discusses a healthy amount of tv & film (7%), current events (5%),
-    college events (5%), art (5%), music (3%), and dating (3%)
--   **The Social Media Influencers:** This segment (7% of the sample)
+2.  **Regular College Kids:** This segment (16% of the sample) discusses
+    a healthy amount of tv & film (7%), current events (6%), college
+    events (5%), art (5%), music (3%), and dating (3%)
+3.  **The Worldly:** This segment (14% of the sample) includes those who
+    regularly discuss politics (15)%, news (10%), and travel (9%).
+    Interestingly, they also discuss more automative (5%) and computers
+    (4%) than other segments.
+4.  **Middle America:** This segment (14% of the sample) includes those
+    who are particularly interested in watching sports (11% of tweets),
+    religion (9%), and parenting (7%).
+5.  **College Gamers:** This segment (7% of the sample) often discusses
+    online gaming (18%) and college-related events (19%).
+6.  **The Social Media Influencers:** This segment (10% of the sample)
     often tweets about cooking (19%), photo sharing (10%), fashion (9%),
     and beauty (6%).
--   **The Others:** This segment (14% of the sample) does not have many
+7.  **The Others:** This segment (24% of the sample) does not have many
     targeted interests. That said, they have many chatter tweets (24%),
     often shares photos (12%),and discuss a healthy amount of current
     events (5%) and shopping (7%).
@@ -636,13 +646,13 @@ Problem 5. Author attribution
 
     # Setup
     rm(list = ls())
-    library(tm)
+    library(tm) 
     library(magrittr)
     library(slam)
     library(proxy)
 
     readerPlain = function(fname){
-      readPlain(elem=list(content=readLines(fname)),
+      readPlain(elem=list(content=readLines(fname)), 
                id=fname, language='en') }
 
 Prepare training set
@@ -659,7 +669,7 @@ Prepare training set
     }
 
     # clean up file names
-    all.authors = lapply(file_list2, readerPlain)
+    all.authors = lapply(file_list2, readerPlain) 
     mynames = file_list2 %>%
     { strsplit(., '/', fixed=TRUE) } %>%
     { lapply(., tail, n=2) } %>%
@@ -671,7 +681,7 @@ Prepare training set
 
 Set up document term matrix
 
-    # create a text mining corpus with the plain docs
+    # create a text mining corpus with the plain docs 
     documents_raw = Corpus(VectorSource(all.authors))
 
     # Pre-processing/tokenization step
@@ -786,9 +796,9 @@ Deeper dive into model performance
     rf.confusion.matrix = confusionMatrix(table(rf.pred,authors2))
     rf.confusion.matrix$overall # again, 80.32% accuracy
 
-    ##       Accuracy          Kappa  AccuracyLower  AccuracyUpper   AccuracyNull
-    ##      0.8032000      0.7991837      0.7870638      0.8186227      0.0200000
-    ## AccuracyPValue  McnemarPValue
+    ##       Accuracy          Kappa  AccuracyLower  AccuracyUpper   AccuracyNull 
+    ##      0.8032000      0.7991837      0.7870638      0.8186227      0.0200000 
+    ## AccuracyPValue  McnemarPValue 
     ##      0.0000000            NaN
 
     rf.confusion.matrix.df = as.data.frame(rf.confusion.matrix$byClass)
@@ -892,23 +902,23 @@ We first read in the data and create the appropriate model
     library(arulesViz)
     groceries <- read.transactions('groceries.txt', sep=',')
     groceries_trans = as(groceries, "transactions")
-    grocery_rules = apriori(groceries,
+    grocery_rules = apriori(groceries, 
                          parameter=list(support=.005, confidence=.1, maxlen=3))
 
     ## Apriori
-    ##
+    ## 
     ## Parameter specification:
     ##  confidence minval smax arem  aval originalSupport maxtime support minlen
     ##         0.1    0.1    1 none FALSE            TRUE       5   0.005      1
     ##  maxlen target   ext
     ##       3  rules FALSE
-    ##
+    ## 
     ## Algorithmic control:
     ##  filter tree heap memopt load sort verbose
     ##     0.1 TRUE TRUE  FALSE TRUE    2    TRUE
-    ##
-    ## Absolute minimum support count: 49
-    ##
+    ## 
+    ## Absolute minimum support count: 49 
+    ## 
     ## set item appearances ...[0 item(s)] done [0.00s].
     ## set transactions ...[169 item(s), 9835 transaction(s)] done [0.00s].
     ## sorting and recoding items ... [120 item(s)] done [0.00s].
@@ -1007,7 +1017,7 @@ We then use the filters and plot the association map below.
 **Rule Interpretation:** Among the 28 rules we generated (i.e., those
 we’re confident in and have high lifts), most have “other vegetables” on
 the right-hand side, while three have “whole milk” and one has “yogurt.”
-As can be seen from the graph aboveL - The “other vegetables” rules make
+As can be seen from the graph above - The “other vegetables” rules make
 general sense as the other vegetables are usually connected with
 specific vegetables and fruits (additionally, they are generally in the
 same section at a grocery story), which are always in the left-hand side
