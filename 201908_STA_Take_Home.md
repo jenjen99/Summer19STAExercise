@@ -472,7 +472,7 @@ code above.
     returns in recent years. Therefore, we believe it is a safe option
     to add to the portfolio.
 
-This portfolio has a 5% VaR a bit under $7.9k and the distribution of
+This portfolio has a 5% VaR a bit over $7.7k and the distribution of
 its returns is wide.
 
 **Portfolio 2:** High aggressiveness - This portfolio contains
@@ -491,7 +491,7 @@ its returns is wide.
     insurance losses from numerous natural disasters). We decided to
     include it, again, to be aggressive with the potential high returns.
 
-This portfolio has a 5% VaR a bit over $7.4k, and the distribution of
+This portfolio has a 5% VaR a bit under $7.4k, and the distribution of
 its returns is similar but slightly more concentrated than Portfolio 1.
 
 **Portfolio 3:** Safe - This portfolio contains 1. iShares MSCI New
@@ -503,7 +503,7 @@ still diversified. 3. Vanguard Information Technology, a technology ETF.
 Technology is the present and the future. Including a technology ETF is
 vital in capturing and profiting from the growth of the world.
 
-This portfolio has a 5% VaR of under $5.3k and the distribution of its
+This portfolio has a 5% VaR of over $5.4k and the distribution of its
 returns is noticeably more concentrated than the two portfolios above.
 
 Problem 4. Market segmentation
