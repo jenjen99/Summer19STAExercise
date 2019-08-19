@@ -472,7 +472,7 @@ code above.
     returns in recent years. Therefore, we believe it is a safe option
     to add to the portfolio.
 
-This portfolio has a 5% VaR a bit over $7.7k and the distribution of
+This portfolio has a 5% VaR over $7.8k and the distribution of
 its returns is wide.
 
 **Portfolio 2:** High aggressiveness - This portfolio contains
@@ -491,7 +491,7 @@ its returns is wide.
     insurance losses from numerous natural disasters). We decided to
     include it, again, to be aggressive with the potential high returns.
 
-This portfolio has a 5% VaR a bit under $7.4k, and the distribution of
+This portfolio has a 5% VaR a bit under $7.6k, and the distribution of
 its returns is similar but slightly more concentrated than Portfolio 1.
 
 **Portfolio 3:** Safe - This portfolio contains 1. iShares MSCI New

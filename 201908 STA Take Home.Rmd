@@ -437,7 +437,7 @@ VaR5
 2. iShares US Medical Devices ETF, a health & biotech ETF. The US health industry is one of the most lucrative in the world (albeit at the detriment of the American people) and continues to grow. While the volatility is high, the upside is as well.
 3. First Trust Brazil Apha DEX Fund, a South American ETF. We decided to ensure more than one geography in each portfolio to guard against potential recession in any region, and picked a Brazilian one to go with the US for Portfolio 1. Though many still see Brazil as an emerging market, this particular ETF has been churning out high returns in recent years. Therefore, we believe it is a safe option to add to the portfolio.
 
-This portfolio has a 5% VaR a bit over $7.7k and the distribution of its returns is wide.
+This portfolio has a 5% VaR over $7.8k and the distribution of its returns is wide.
 
 **Portfolio 2:** High aggressiveness - This portfolio contains
 
@@ -446,7 +446,7 @@ This portfolio has a 5% VaR a bit over $7.7k and the distribution of its returns
 3. iShares MSCI Thailand ETF, an Asia Pacific ETF. We added a different, yet still highly volatile geography into the mix.
 4. SPDR S&P Insurance ETF, a financial services ETF. The financial services industry in general is highly lucrative, though the risks can be high as well (read: cause of the 2008 recession, high insurance losses from numerous natural disasters). We decided to include it, again, to be aggressive with the potential high returns.
 
-This portfolio has a 5% VaR a bit under $7.4k, and the distribution of its returns is similar but slightly more concentrated than Portfolio 1.
+This portfolio has a 5% VaR a bit under $7.6k, and the distribution of its returns is similar but slightly more concentrated than Portfolio 1.
 
 **Portfolio 3:** Safe - This portfolio contains
 1. iShares MSCI New Zealand ETF, an Asia Pacific ETF. This is a safe bet on a developed country with steady growth.
