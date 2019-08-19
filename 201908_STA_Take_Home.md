@@ -446,13 +446,7 @@ Porfolio 3:
     ##       5%
     ## 5278.721
 
-**Report:** Below is a brief description of each of our ETF portfolios,
-along with their values at right at the 5% level according to our
-simulations. The first two portfolios have similar VaR at over $7k.
-Porfolio 3 is safer than the other two, at about $5.5k of VaR. Note that
-given the above resampling was generated from Monte Carlo simulations,
-our answers in the report will not be exactly as the results knitted
-above, and will not be exactly replicable.
+**Report:** Below is a brief description of each of our ETF portfolios, along with their values at right at the 5% level according to our simulations. The first two portfolios have relatively similar VaR at over $7k. Porfolio 3 is safer than the other two, at under  $5.5k of VaR. Note that given the above resampling was generated from Monte Carlo simulations, our answers will not be exactly replicable based on the code above.
 
 **Porfolio 1:** Medium-High aggressiveness - This portfolio contains 1.
 Clymore CEF GS Connect ETN, a currently high-performing diverifised ETF
@@ -470,7 +464,7 @@ Though many still see Brazil as an emerging market, this particular ETF
 has been churning out high returns in recent years. Therefore, we
 believe it is a safe option to add to the portfolio.
 
-This potfolio has a 5% VaR of about $7,712 and the distrbution of its
+This potfolio has a 5% VaR a bit under $7.9k and the distrbution of its
 returns is wide.
 
 **Portfolio 2:** High aggressiveness - This portfolio contains 1.
@@ -488,7 +482,7 @@ cause of the 2008 recession, high insurance losses from numerous natural
 disasters). We decided to include it, again, to be aggressive with the
 potential high returns.
 
-This potfolio has a 5% VaR of about $7,342, and the distrbution of its
+This potfolio has a 5% VaR a bit over $7.4k, and the distrbution of its
 returns is similar but slightly more concentrated than Portfolio 1.
 
 **Portfolio 3:** Safe - This portfolio contains 1. iShares MSCI New
@@ -500,7 +494,7 @@ still diversified. 3. Vanguard Information Technology, a technology ETF.
 Technology is the present and the future. Including a technology ETF is
 vital in capturing and profiting from the growth of the world.
 
-This potfolio has a 5% VaR of about $5,454 and the distrbution of its
+This potfolio has a 5% VaR of under $5.3k and the distrbution of its
 returns is noticeably more concentrated than the two portfolios above.
 
 Problem 4. Market segmentation
