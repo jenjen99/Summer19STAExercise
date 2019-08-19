@@ -189,7 +189,7 @@ cancellations.
 
 <img src="201908_STA_Take_Home_files/figure-markdown_strict/unnamed-chunk-7-3.png" style="display: block; margin: auto;" />
 
-    # Get Plot 3's order for Plot 4 
+    # Get Plot 3's order for Plot 4
     Xorder = reorder(FlightCancellations$AirlineName, -FlightCancellations$cancelRatio)
 
     # Plot cancellation reasons by airline
@@ -204,7 +204,7 @@ cancellations.
       geom_bar(stat = 'identity') +
       theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
       labs(title="AUS Outbound Flight Cancellation Reasons, by Airline - 2008",
-           x ="Airline", 
+           x ="Airline",
            y = "Percentage of Cancelled Flights") +
       scale_fill_discrete(name = "Cancellation Reason",
                           labels=c("Carrier", "Weather", "NAS"))
@@ -278,17 +278,17 @@ Portfolio 1:
             holdings = holdings + holdings*return.today
             total_wealth = sum(holdings)
             wealthtracker[today] = total_wealth
-            
+
             # rebalancing
           weights = c(0.4, 0.3, 0.3)
           holdings = weights * total_wealth
-            
+
         }
         wealthtracker
     }
 
     # Profit/loss
-    mean(sim1[,n_days]) 
+    mean(sim1[,n_days])
 
     ## [1] 100496.5
 
@@ -303,7 +303,7 @@ Portfolio 1:
     VaR5 = 100000 - quantile(sim1[,n_days], 0.05)
     VaR5
 
-    ##       5% 
+    ##       5%
     ## 7860.612
 
 Portfolio 2:
@@ -349,17 +349,17 @@ Portfolio 2:
             holdings = holdings + holdings*return.today
             total_wealth = sum(holdings)
             wealthtracker[today] = total_wealth
-            
+
             # rebalancing
           weights = c(0.25, 0.25, 0.25, 0.25)
           holdings = weights * total_wealth
-            
+
         }
         wealthtracker # record wealth of day 20
     }
 
     # Profit/loss
-    mean(sim1[,n_days]) 
+    mean(sim1[,n_days])
 
     ## [1] 100228.9
 
@@ -374,7 +374,7 @@ Portfolio 2:
     VaR5 = 100000 - quantile(sim1[,n_days], 0.05)
     VaR5
 
-    ##       5% 
+    ##       5%
     ## 7636.193
 
 Porfolio 3:
@@ -418,17 +418,17 @@ Porfolio 3:
             holdings = holdings + holdings*return.today
             total_wealth = sum(holdings)
             wealthtracker[today] = total_wealth
-            
+
             # rebalancing
           weights = c(0.2, 0.4, 0.4)
           holdings = weights * total_wealth
-            
+
         }
         wealthtracker
     }
 
     # Profit/loss
-    mean(sim1[,n_days]) 
+    mean(sim1[,n_days])
 
     ## [1] 100723.3
 
@@ -443,7 +443,7 @@ Porfolio 3:
     VaR5 = 100000 - quantile(sim1[,n_days], 0.05)
     VaR5
 
-    ##       5% 
+    ##       5%
     ## 5401.337
 
 **Report:** Below is a brief description of each of our ETF portfolios,
@@ -646,13 +646,13 @@ Problem 5. Author attribution
 
     # Setup
     rm(list = ls())
-    library(tm) 
+    library(tm)
     library(magrittr)
     library(slam)
     library(proxy)
 
     readerPlain = function(fname){
-      readPlain(elem=list(content=readLines(fname)), 
+      readPlain(elem=list(content=readLines(fname)),
                id=fname, language='en') }
 
 Prepare training set
@@ -669,7 +669,7 @@ Prepare training set
     }
 
     # clean up file names
-    all.authors = lapply(file_list2, readerPlain) 
+    all.authors = lapply(file_list2, readerPlain)
     mynames = file_list2 %>%
     { strsplit(., '/', fixed=TRUE) } %>%
     { lapply(., tail, n=2) } %>%
@@ -681,7 +681,7 @@ Prepare training set
 
 Set up document term matrix
 
-    # create a text mining corpus with the plain docs 
+    # create a text mining corpus with the plain docs
     documents_raw = Corpus(VectorSource(all.authors))
 
     # Pre-processing/tokenization step
@@ -796,9 +796,9 @@ Deeper dive into model performance
     rf.confusion.matrix = confusionMatrix(table(rf.pred,authors2))
     rf.confusion.matrix$overall # again, 80.32% accuracy
 
-    ##       Accuracy          Kappa  AccuracyLower  AccuracyUpper   AccuracyNull 
-    ##      0.8032000      0.7991837      0.7870638      0.8186227      0.0200000 
-    ## AccuracyPValue  McnemarPValue 
+    ##       Accuracy          Kappa  AccuracyLower  AccuracyUpper   AccuracyNull
+    ##      0.8032000      0.7991837      0.7870638      0.8186227      0.0200000
+    ## AccuracyPValue  McnemarPValue
     ##      0.0000000            NaN
 
     rf.confusion.matrix.df = as.data.frame(rf.confusion.matrix$byClass)
@@ -902,23 +902,23 @@ We first read in the data and create the appropriate model
     library(arulesViz)
     groceries <- read.transactions('groceries.txt', sep=',')
     groceries_trans = as(groceries, "transactions")
-    grocery_rules = apriori(groceries, 
+    grocery_rules = apriori(groceries,
                          parameter=list(support=.005, confidence=.1, maxlen=3))
 
     ## Apriori
-    ## 
+    ##
     ## Parameter specification:
     ##  confidence minval smax arem  aval originalSupport maxtime support minlen
     ##         0.1    0.1    1 none FALSE            TRUE       5   0.005      1
     ##  maxlen target   ext
     ##       3  rules FALSE
-    ## 
+    ##
     ## Algorithmic control:
     ##  filter tree heap memopt load sort verbose
     ##     0.1 TRUE TRUE  FALSE TRUE    2    TRUE
-    ## 
-    ## Absolute minimum support count: 49 
-    ## 
+    ##
+    ## Absolute minimum support count: 49
+    ##
     ## set item appearances ...[0 item(s)] done [0.00s].
     ## set transactions ...[169 item(s), 9835 transaction(s)] done [0.00s].
     ## sorting and recoding items ... [120 item(s)] done [0.00s].
@@ -1017,15 +1017,8 @@ We then use the filters and plot the association map below.
 **Rule Interpretation:** Among the 28 rules we generated (i.e., those
 we’re confident in and have high lifts), most have “other vegetables” on
 the right-hand side, while three have “whole milk” and one has “yogurt.”
-As can be seen from the graph above - The “other vegetables” rules make
-general sense as the other vegetables are usually connected with
-specific vegetables and fruits (additionally, they are generally in the
-same section at a grocery story), which are always in the left-hand side
-of the rules predicting “other vegetables.” - The “whole milk” rules
-also make sense. “Whole milk” is connected to many dairy products in the
-graph above, understandably as most people who cook with dairy products
-require many types of such products. And as expected, all rules have
-some sort of dairy product on the left-hand side. - Lastly, the “yogurt”
-rule (predicted from curd and tropical fruit) makes sense as curd is
-also a dairy product, connected to yogurt in the graph above, and people
-often put fruits with their yogurt.
+As can be seen from the graph above
+
+- The “other vegetables” rules make general sense as the other vegetables are usually connected with specific vegetables and fruits (additionally, they are generally in the same section at a grocery story), which are always in the left-hand side of the rules predicting “other vegetables.”
+- The “whole milk” rules also make sense. “Whole milk” is connected to many dairy products in the graph above, understandably as most people who cook with dairy products require many types of such products. And as expected, all rules have some sort of dairy product on the left-hand side.
+- Lastly, the “yogurt” rule (predicted from curd and tropical fruit) makes sense as curd is also a dairy product, connected to yogurt in the graph above, and people often put fruits with their yogurt.

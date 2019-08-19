@@ -733,6 +733,7 @@ plot(sub1, method='graph')
 
 **Rule Interpretation:**
 Among the 28 rules we generated (i.e., those we're confident in and have high lifts), most have "other vegetables" on the right-hand side, while three have "whole milk" and one has "yogurt." As can be seen from the graph above
+
 - The "other vegetables" rules make general sense as the other vegetables are usually connected with specific vegetables and fruits (additionally, they are generally in the same section at a grocery story), which are always in the left-hand side of the rules predicting "other vegetables." 
 - The "whole milk" rules also make sense. "Whole milk" is connected to many dairy products in the graph above, understandably as most people who cook with dairy products require many types of such products. And as expected,  all rules have some sort of dairy product on the left-hand side.
 - Lastly, the "yogurt" rule (predicted from curd and tropical fruit) makes sense as curd is also a dairy product, connected to yogurt in the graph above, and people often put fruits with their yogurt.  
