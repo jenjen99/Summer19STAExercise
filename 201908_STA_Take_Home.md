@@ -235,10 +235,8 @@ Problem 3. Portfolio modeling
 Portfolio 1:
 ------------
 
--   Diversified ETF: GCE (Clymore CEF GS Connect ETN); diversified =
-    safe; highest YTD growth
--   Health & Biotech: IHI (iShares US Medical Devices ETF); growing
-    market, high volatility = high upside
+-   Diversified ETF: GCE (Clymore CEF GS Connect ETN)
+-   Health & Biotech: IHI (iShares US Medical Devices ETF)
 -   S. America: FBZ (First Trust Brazil Alpha DEX Fund)
 
 <!-- -->
@@ -311,10 +309,8 @@ Portfolio 1:
 Portfolio 2:
 ------------
 
--   Large cap blend ETF: VTV (Vanguard Value ETF); popular ETF / large
-    cap and blend between growth and value = reliable
--   Emerging market: GREK (Global X FTSE Greece 20 ETF); relative stable
-    emerging market
+-   Large cap blend ETF: VTV (Vanguard Value ETF)
+-   Emerging market: GREK (Global X FTSE Greece 20 ETF)
 -   Asia Pacific: THD (iShares MSCI Thailand ETF)
 -   Fin. Services: KIE (SPDR S&P Insurance ETF)
 
